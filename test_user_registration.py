@@ -19,7 +19,10 @@ def test_check_firstname():
 def test_check_last_name():
     assert user_registration.validate_last_name("Vemula")
     assert not user_registration.validate_last_name('vem')
-
+    
+def test_check_email():
+    assert user_registration.validate_email("dileep@gmail.com.com")
+    assert not user_registration.validate_email("dil@gmail.com.1a")
 
 if __name__ == "__main__":
     pytest.main()
