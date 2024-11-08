@@ -16,7 +16,9 @@ def test_check_firstname():
     assert user_registration.validate_firstname("Dileep")
     assert not user_registration.validate_firstname("dil")
 
-
+def test_check_last_name():
+    assert user_registration.validate_last_name("Vemula")
+    assert not user_registration.validate_last_name('vem')
 
 
 if __name__ == "__main__":
