@@ -47,10 +47,24 @@ def validate_last_name(l_name):
         log.error(f"Error in validate_last_name: {e}")
         return False
     
+def validate_email(email):
+    
+    try:
+        if re.match(r'^[a-zA-Z0-9]+([._%+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$',email):
+            log.info("Email is valid")
+            return True
+        else:
+            log.error("Email is invalid")
+            return False
+    except Exception as e:
+        log.error(f"Raised exception is{e}")
+        return False  
+    
 def main():
     
     validate_firstname("Dileep")
     validate_last_name("Vemula")
+    validate_email("dileep@gmail.com.com")
     
 if __name__=="__main__":
     main()
