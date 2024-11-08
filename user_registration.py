@@ -34,10 +34,23 @@ def validate_firstname(f_name):
         log.error(f"Error in validate_first_name: {e}")
         return False
 
-
+def validate_last_name(l_name):
+    
+    try:
+        if re.match(r'[A-Z][a-zA-Z]{2,}',l_name):
+            log.info("Last Name is valid.")
+            return True
+        else:
+            log.error("Last Name is invalid. It must start with a capital letter and have at least 3 characters.")
+            return False
+    except Exception as e:
+        log.error(f"Error in validate_last_name: {e}")
+        return False
+    
 def main():
     
     validate_firstname("Dileep")
-
+    validate_last_name("Vemula")
+    
 if __name__=="__main__":
     main()
