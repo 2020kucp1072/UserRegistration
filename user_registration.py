@@ -92,6 +92,16 @@ def validate_password(password):
         else:
             log.info("Password has at least one numeric character.")
             
+        special_chars = re.findall(r'[^a-zA-Z0-9]', password)
+        
+        if len(special_chars) != 1:
+            log.error("Password must have exactly one special character.")
+            return False
+        else:
+            log.info("Password has exactly one special character.")
+        
+        log.info("Password is valid.")
+            
         return True
     
         
@@ -106,5 +116,6 @@ def main():
     validate_last_name("Vemula")
     validate_email("dileep@gmail.com")
     validate_mobile("919849032495")
+    validate_password("2008227@Di")
 if __name__=="__main__":
     main()
