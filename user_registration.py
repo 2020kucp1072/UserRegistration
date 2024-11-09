@@ -72,6 +72,18 @@ def validate_mobile(mobile):
         log.error(f"Raised exception is{e}")
         return False 
     
+def validate_password(password):
+    try:
+        if not re.match(r'^.{8,}$', password):
+            log.error("Password must have at least 8 characters.")
+            return False
+        else:
+            log.info("Password meets the minimum length requirement.")
+        return True
+    except Exception as e:
+        log.error(f"Error in validate_password: {e}")
+        return False
+    
 def main():
     
     validate_firstname("Dileep")
