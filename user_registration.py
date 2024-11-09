@@ -85,6 +85,13 @@ def validate_password(password):
             return False
         else:
             log.info("Password has at least one uppercase letter.")
+            
+        if not re.search(r'\d', password):
+            log.error("Password must contain at least one numeric character.")
+            return False
+        else:
+            log.info("Password has at least one numeric character.")
+            
         return True
     
         
