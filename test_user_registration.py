@@ -22,7 +22,32 @@ def test_check_last_name():
     
 def test_check_email():
     assert user_registration.validate_email("dileep@gmail.com.com")
+    assert user_registration.validate_email('abc+100@gmail.com')
+    assert user_registration.validate_email('abc@yahoo.com')
+    assert user_registration.validate_email('abc-100@yahoo.com')
+    assert user_registration.validate_email('abc.100@yahoo.com')
+    assert user_registration.validate_email('abc111@abc.com')
+    assert user_registration.validate_email('abc111@abc.net')
+    assert user_registration.validate_email('abc.100@abc.com.au')
+    assert user_registration.validate_email('abc@1.com')
+    assert user_registration.validate_email('abc@gmail.com.com')
+
+    # Invalid email assertions
+    assert not user_registration.validate_email(' abc')
+    assert not user_registration.validate_email('abc@.com.my')
+    assert not user_registration.validate_email('abc123@gmail.a')
+    assert not user_registration.validate_email('abc123@.com')
+    assert not user_registration.validate_email('abc123@.com.com')
+    assert not user_registration.validate_email('.abc@abc.com')
+    assert not user_registration.validate_email('abc()*@gmail.com')
+    assert not user_registration.validate_email('abc@%*.com')
+    assert not user_registration.validate_email('abc..2002@gmail.com')
+    assert not user_registration.validate_email('abc.@gmail.com')
+    assert not user_registration.validate_email('abc@abc@gmail.com')
+    assert not user_registration.validate_email('abc@gmail.com.1a')
+    assert not user_registration.validate_email('abc@gmail.com.aa.au')
     assert not user_registration.validate_email("dil@gmail.com.1a")
+    
 def test_check_mobile():
     assert user_registration.validate_mobile("919849032495")
     assert not user_registration.validate_mobile("798177")
