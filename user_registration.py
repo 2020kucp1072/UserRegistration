@@ -60,11 +60,23 @@ def validate_email(email):
         log.error(f"Raised exception is{e}")
         return False  
     
+def validate_mobile(mobile):
+      try:
+        if re.match(r'^\d{2}\d{10}$',mobile):
+            log.info("mobile is valid")
+            return True
+        else:
+            log.error("mobile is invalid")
+            return False
+      except Exception as e:
+        log.error(f"Raised exception is{e}")
+        return False 
+    
 def main():
     
     validate_firstname("Dileep")
     validate_last_name("Vemula")
-    validate_email("dileep@gmail.com.com")
-    
+    validate_email("dileep@gmail.com")
+    validate_mobile("919849032495")
 if __name__=="__main__":
     main()
