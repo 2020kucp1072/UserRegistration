@@ -23,6 +23,8 @@ def test_check_last_name():
 def test_check_email():
     assert user_registration.validate_email("dileep@gmail.com.com")
     assert not user_registration.validate_email("dil@gmail.com.1a")
-
+def test_check_mobile():
+    assert user_registration.validate_mobile("919849032495")
+    assert not user_registration.validate_mobile("798177")
 if __name__ == "__main__":
     pytest.main()
