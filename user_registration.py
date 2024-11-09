@@ -79,11 +79,20 @@ def validate_password(password):
             return False
         else:
             log.info("Password meets the minimum length requirement.")
+            
+        if not re.search(r'[A-Z]', password):
+            log.error("Password must contain at least one uppercase letter.")
+            return False
+        else:
+            log.info("Password has at least one uppercase letter.")
         return True
+    
+        
     except Exception as e:
         log.error(f"Error in validate_password: {e}")
         return False
-    
+        
+        
 def main():
     
     validate_firstname("Dileep")
