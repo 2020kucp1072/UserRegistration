@@ -26,5 +26,9 @@ def test_check_email():
 def test_check_mobile():
     assert user_registration.validate_mobile("919849032495")
     assert not user_registration.validate_mobile("798177")
+    
+def test_check_password():
+    assert user_registration.validate_password("2008227@Di")
+    assert not user_registration.validate_password("sjsj")
 if __name__ == "__main__":
     pytest.main()
